@@ -1,20 +1,31 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <mat-icon  *ngIf="router.url== '/report'" (click)="back2Home()"   class="cursor-pointer">arrow_back</mat-icon>
+    <span> Vehiculos </span>
+    <span><small *ngIf="filters.length>0"  style="float: right">>()</small></span>
+    <span class="example-spacer"></span>
+    <mat-icon [matMenuTriggerFor]="menu" class="cursor-pointer">more_vert</mat-icon>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="download()">Download </button>
+    </mat-menu>
+
+    <mat-menu #mnuColumns="matMenu">
+      <button *ngFor="let column of settingsColumnsService.allColumns" mat-menu-item>
+        <mat-checkbox [checked]="settingsColumnsService.settingsDisplayedColumns.get(column).visible"
+                      (change)="settingsColumnsService.toggleColumn($event, column)">{{
+          settingsColumnsService.settingsDisplayedColumns.get(column).title}}
+        </mat-checkbox>
+      </button>
+    </mat-menu>
+
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-container">
+  <mat-sidenav   mode="side" style="width: 400px">
+  </mat-sidenav>
+  <mat-sidenav-content>
+   <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
 

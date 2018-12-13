@@ -16,6 +16,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "prompt-selector": [
+        "dist/prompt-selector"
+      ],
+      "prompt-selector/*": [
+        "dist/prompt-selector/*"
+      ]
+    }
   }
 }

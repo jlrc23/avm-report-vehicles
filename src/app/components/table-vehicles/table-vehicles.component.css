@@ -1,0 +1,16 @@
+.full-width-table {
+  width: 100%;
+}
+.dataTable{
+  padding-left: 2px;
+  padding-right: 2px;
+}
+.mat-header-cell, .mat-cell{
+  border: 1px solid lightgray;
+  border-right: none;
+  border-bottom: none;
+}
+
+.mat-table{
+  border: 1px solid lightgray;
+}

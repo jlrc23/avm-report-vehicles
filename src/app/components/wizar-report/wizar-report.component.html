@@ -1,0 +1,69 @@
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Campos del reporte</ng-template>
+      <app-fields-selector></app-fields-selector>
+      <div>
+        <button style="float: right;" mat-button matStepperNext>Siguiente</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Filtros</ng-template>
+      <app-filter></app-filter>
+      <div>
+        <button style="float: right" mat-button matStepperNext>Siguiente</button>
+        <button style="float: right" mat-button matStepperPrevious>Regresar</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Resumen</ng-template>
+    <div class="row">
+      <div class="col">
+        <b>Campos Seleccionados:</b>
+        <ul>
+          <li *ngFor="let item of wizardDataService.fieldsSelecteds">{{item.text}}</li>
+        </ul>
+      </div>
+      <div class="col" *ngIf="wizardDataService.filters; else nohavefilter">
+        <b>Filtros:</b>
+        <div class="row" *ngIf=" wizardDataService.filters['documents']">
+          <div class="col">
+            Documentos Seleccionados:
+            <ul>
+              <li *ngFor="let doc of wizardDataService.filters['documents']">{{doc.description}}</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row" *ngIf="wizardDataService.filters['owners']">
+          <div class="col">
+            A favor de:
+            <ul>
+              <li *ngFor="let owner of wizardDataService.filters['owners']">{{owner.description}}</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row" *ngIf="wizardDataService.filters['typesDocument']">
+          <div class="col">
+            Tipos de documentos:
+            <ul>
+              <li *ngFor="let typeDoc of wizardDataService.filters['typesDocument']">{{typeDoc.description}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <ng-template #nohavefilter>
+        <div class="col" >
+          <i>No hay filtros definidos</i>
+        </div>
+      </ng-template>
+    </div>
+
+    <div>
+      <button style="float: right" mat-raised-button color="primary" (click)="makeReporte()">Generar Reporte</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
