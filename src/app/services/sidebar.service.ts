@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {MatSidenav} from '@angular/material';
 
 @Injectable({
@@ -6,9 +6,10 @@ import {MatSidenav} from '@angular/material';
 })
 export class SidebarService {
   private sidebar: MatSidenav;
-  private show:boolean = false;
+  private show: boolean = false;
 
-  constructor() { }
+  constructor() {
+  }
 
   public toggle(): boolean {
     this.show = !this.show;
@@ -37,11 +38,12 @@ export class SidebarService {
     }
     return this.show;
   }
-  public setSidebar(sidebar){
-    if(!this.sidebar && this.show){
+
+  public setSidebar(sidebar) {
+    if (!this.sidebar && this.show) {
       this.sidebar = sidebar;
       this.sidebar.open();
-    }else{
+    } else {
       this.sidebar = sidebar;
     }
   }

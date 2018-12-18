@@ -2,3 +2,36 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+input[type=text]{
+  width: 100%;
+}
+
+.mat-form-field-infix{
+  width: auto !important;
+}
+
+.invisible{
+  display: none;
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}
+.mat-toolbar.mat-primary, .mat-fab.mat-primary, .mat-flat-button.mat-primary, .mat-mini-fab.mat-primary, .mat-raised-button.mat-primary {
+  background-color:#0B7D37 ;
+}
+mat-sidenav-content.mat-drawer-container{
+  background-color: white !important; /*#f2faed rgb(242, 250, 237);*/
+  color:black;
+}
+.example-container{
+  min-height: 500px;
+}

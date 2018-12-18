@@ -1,31 +1,22 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <mat-icon  *ngIf="router.url== '/report'" (click)="back2Home()"   class="cursor-pointer">arrow_back</mat-icon>
-    <span> Vehiculos </span>
-    <span><small *ngIf="filters.length>0"  style="float: right">>()</small></span>
+    <mat-icon *ngIf="router.url== '/report'" (click)="back2Home()" class="cursor-pointer">arrow_back</mat-icon>
+    <span> Vehículos </span>
     <span class="example-spacer"></span>
     <mat-icon [matMenuTriggerFor]="menu" class="cursor-pointer">more_vert</mat-icon>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="download()">Download </button>
+      <button mat-menu-item (click)="download()">Download</button>
     </mat-menu>
 
-    <mat-menu #mnuColumns="matMenu">
-      <button *ngFor="let column of settingsColumnsService.allColumns" mat-menu-item>
-        <mat-checkbox [checked]="settingsColumnsService.settingsDisplayedColumns.get(column).visible"
-                      (change)="settingsColumnsService.toggleColumn($event, column)">{{
-          settingsColumnsService.settingsDisplayedColumns.get(column).title}}
-        </mat-checkbox>
-      </button>
-    </mat-menu>
 
   </mat-toolbar-row>
 </mat-toolbar>
 
 <mat-sidenav-container class="example-container">
-  <mat-sidenav   mode="side" style="width: 400px">
+  <mat-sidenav mode="side" style="width: 400px">
   </mat-sidenav>
   <mat-sidenav-content>
-   <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
 

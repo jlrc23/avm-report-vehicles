@@ -3,29 +3,28 @@
     <div class="row">
       <div class="col">
         <mat-form-field>
-          <mat-select placeholder="Documentos:" formControlName="documents" multiple>
-            <mat-option *ngFor="let item of documentsCatalog" [value]="item">{{item.description}}</mat-option>
+          <mat-select placeholder="Tipo de Servicio:" formControlName="documents" multiple>
+            <mat-option *ngFor="let item of typesService" [value]="item">{{item.description}}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
       <div class="col">
         <mat-form-field>
-          <mat-select placeholder="Tipos de documento:" formControlName="typesDocument"  multiple>
+          <mat-select placeholder="Titulo de propiedad:" formControlName="typesDocument"  multiple>
             <mat-option *ngFor="let item of typesDocumentsCatalog" [value]="item">{{item.description}}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
-
     </div>
-    <div class="row">
-      <div class="col">
-        <mat-form-field>
-          <mat-select placeholder="A favor de:"   formControlName="owners" multiple>
-            <mat-option *ngFor="let item of ownersCatalog" [value]="item">{{item.description}}</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-    </div>
+    <!--<div class="row">-->
+      <!--<div class="col">-->
+        <!--<mat-form-field>-->
+          <!--<mat-select placeholder="A favor de:"   formControlName="owners" multiple>-->
+            <!--<mat-option *ngFor="let item of ownersCatalog" [value]="item">{{item.description}}</mat-option>-->
+          <!--</mat-select>-->
+        <!--</mat-form-field>-->
+      <!--</div>-->
+    <!--</div>-->
   </form>
 
 </div>

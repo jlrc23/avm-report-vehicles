@@ -10,7 +10,7 @@ import {WizardDataService} from '../../services/wizard-data.service';
   styleUrls: ['./filter.component.css']
 })
 export class FilterComponent implements OnInit {
-  public documentsCatalog: CatalogItemInterface[] = [];
+  public typesService: CatalogItemInterface[] = [];
   public typesDocumentsCatalog: CatalogItemInterface[] = [];
   public ownersCatalog: CatalogItemInterface[] = [];
   public frmFilter: FormGroup;
@@ -27,22 +27,13 @@ export class FilterComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.vehicleReportService.getDocuments().subscribe(resp => {
+    this.vehicleReportService.getTypeServices().subscribe(resp => {
         for (const i in resp) {
           if (resp.hasOwnProperty(i)) {
             const id: number = Number(i);
-            this.documentsCatalog.push({id, description: resp[i]});
+            this.typesService.push({id, description: resp[i].service});
           }
         }
-
-    });
-    this.vehicleReportService.getOwners().subscribe(resp => {
-      for (const i in resp) {
-        if (resp.hasOwnProperty(i)) {
-          const id: number = Number(i);
-          this.ownersCatalog.push({id, description: resp[i]});
-        }
-      }
     });
     this.vehicleReportService.getTipoDocumento().subscribe(resp => {
       for (const i in resp) {
@@ -52,6 +43,15 @@ export class FilterComponent implements OnInit {
         }
       }
     });
+    // this.vehicleReportService.getOwners().subscribe(resp => {
+    //   for (const i in resp) {
+    //     if (resp.hasOwnProperty(i)) {
+    //       const id: number = Number(i);
+    //       this.ownersCatalog.push({id, description: resp[i]});
+    //     }
+    //   }
+    // });
+
 
 
     this.frmFilter.valueChanges.subscribe(value => {
