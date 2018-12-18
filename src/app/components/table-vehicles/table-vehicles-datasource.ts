@@ -79,6 +79,35 @@ export class TableVehiclesDataSource extends DataSource<VehicleInterface> {
         case "Año":
           return compare(+a["Año"], +b["Año"], isAsc);
           break;
+        case "ECO Anterior":
+          return compare(+a["ECO Anterior"], +b["ECO Anterior"], isAsc);
+          break;
+        case  "Marca":
+          return compare(a["Marca"], b["Marca"], isAsc);
+          break;
+        case  "Número de Motor":
+          return compare(+a["Número de Motor"], +b["Número de Motor"], isAsc);
+          break;
+        case  "Número de Serie":
+          return compare(a["Número de Serie"], b["Número de Serie"], isAsc);
+          break;
+        case  "Placas":
+          return compare(a["Placas"], b["Placas"], isAsc);
+          break;
+        case  "Tipo de Servicio":
+          return compare(a["Tipo de Servicio"], b["Tipo de Servicio"], isAsc);
+          break;
+        case  "Titular del Permiso":
+          return compare(a["Titular del Permiso"], b["Titular del Permiso"], isAsc);
+          break;
+        case  "Título de propiedad":
+          return compare(a["Título de propiedad"], b["Título de propiedad"], isAsc);
+          break;
+        case  "Pasajeros":
+          return compare(+a["Pasajeros"], +b["Pasajeros"], isAsc);
+          break;
+
+
         case "Número Economico":
           return compare(+a["Número Economico"], +b["Número Economico"], isAsc);
           break;

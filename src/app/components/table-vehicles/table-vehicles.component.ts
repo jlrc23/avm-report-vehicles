@@ -16,17 +16,23 @@ import {WizardDataService} from '../../services/wizard-data.service';
 export class TableVehiclesComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+  msgStatus: string;
   public dataSource: TableVehiclesDataSource;
-  public allData:any;
+  public allData: any;
 
   ngOnInit() {
     this.settingsColumnsService.displayedColumns = this.wizardDataService.fieldsSelecteds.map(item => item.value.name);
     this.dataSource = new TableVehiclesDataSource(this.paginator, this.sort, this.vehicleReportDataService);
     console.log(`Request: `, this.wizardDataService.getData());
+    this.msgStatus = 'Cargando...';
     this.vehicleReportService.postReport(this.wizardDataService.getData()).subscribe((resp: any) => {
       console.log(`Recived typeResponse: ${typeof resp} Response:`, resp);
       this.allData = resp;
+      this.msgStatus = (Array.isArray(this.allData) && this.allData.length > 0 ) ?  '' : 'No hay datos';
       this.vehicleReportDataService.setVehicles(this.allData);
+    }, error1 => {
+      console.error(error1);
+      this.msgStatus = 'Ocurrio un error';
     });
   }
 

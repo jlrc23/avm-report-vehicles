@@ -1,5 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .example-icon {
@@ -34,4 +33,15 @@ mat-sidenav-content.mat-drawer-container{
 }
 .example-container{
   min-height: 500px;
+}
+
+table thead tr th.mat-header-cell{
+  color: #71bf43;
+}
+
+table > tbody > tr:nth-child(odd) > td{
+  background: #f2faed;
+}
+table > tbody > tr:nth-child(odd) > td, table > tbody > tr:nth-child(odd) > th{
+  background-color: #f9f9f9;
 }

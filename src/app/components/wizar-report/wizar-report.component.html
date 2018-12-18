@@ -29,19 +29,11 @@
       </div>
       <div class="col" *ngIf="wizardDataService.filters; else nohavefilter">
         <b>Filtros:</b>
-        <div class="row" *ngIf=" wizardDataService.filters['documents']">
+        <div class="row" *ngIf=" wizardDataService.filters['typesService']">
           <div class="col">
             Documentos Seleccionados:
             <ul>
-              <li *ngFor="let doc of wizardDataService.filters['documents']">{{doc.description}}</li>
-            </ul>
-          </div>
-        </div>
-        <div class="row" *ngIf="wizardDataService.filters['owners']">
-          <div class="col">
-            A favor de:
-            <ul>
-              <li *ngFor="let owner of wizardDataService.filters['owners']">{{owner.description}}</li>
+              <li *ngFor="let service of wizardDataService.filters['typesService']">{{service.description}}</li>
             </ul>
           </div>
         </div>

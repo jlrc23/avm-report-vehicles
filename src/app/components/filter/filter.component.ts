@@ -12,7 +12,6 @@ import {WizardDataService} from '../../services/wizard-data.service';
 export class FilterComponent implements OnInit {
   public typesService: CatalogItemInterface[] = [];
   public typesDocumentsCatalog: CatalogItemInterface[] = [];
-  public ownersCatalog: CatalogItemInterface[] = [];
   public frmFilter: FormGroup;
 
   constructor(
@@ -20,9 +19,8 @@ export class FilterComponent implements OnInit {
     public wizardDataService: WizardDataService
   ) {
     this.frmFilter = new FormGroup({
-      documents: new FormControl(),
-      typesDocument: new FormControl(),
-      owners: new FormControl()
+      typesService: new FormControl(),
+      typesDocument: new FormControl()
     });
   }
 

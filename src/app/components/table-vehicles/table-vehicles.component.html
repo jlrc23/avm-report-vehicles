@@ -1,5 +1,4 @@
-
-<div class="mat-elevation-z8">
+<div class="mat-elevation-z8" [ngClass]="{'invisible': msgStatus }">
   <table  mat-table class="full-width-table" [dataSource]="dataSource" matSort aria-label="Elements">
     <ng-container *ngFor="let item of wizardDataService.fieldsSelecteds" [matColumnDef]="item.value.name">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>{{item.value.name}}</th>
@@ -8,13 +7,9 @@
           <span class="dataTable" *ngSwitchCase="'Fecha'">{{row[item.value.name] | date}}</span>
           <span class="dataTable" *ngSwitchCase="'Monto'"> {{row[item.value.name]   | currency}}</span>
           <span class="dataTable" *ngSwitchDefault>{{row[item.value.name]}}</span>
-
         </div>
-
       </td>
     </ng-container>
-
-
 
     <ng-container *ngFor="let col of settingsColumnsService.displayedColumns" matColumnDef="{{col}}Filter">
       <td mat-header-cell *matHeaderCellDef >
@@ -23,9 +18,7 @@
         </mat-form-field>
       </td>
     </ng-container>
-
     <tr mat-header-row *matHeaderRowDef="settingsColumnsService.displayedColumns"></tr>
-    <!--<tr mat-header-row *matHeaderRowDef="settingsColumnsService.displayedFilterColumns" [ngClass]="{'invisible':!settingsColumnsService.showFilter}"></tr>-->
     <tr mat-row *matRowDef="let row; columns: settingsColumnsService.displayedColumns;"></tr>
   </table>
 
@@ -35,4 +28,7 @@
       [pageSize]="5"
       [pageSizeOptions]="[5,10, 20, 25]">
   </mat-paginator>
+</div>
+<div [ngClass]="{'invisible': !msgStatus }">
+  <i>{{msgStatus}}</i>
 </div>

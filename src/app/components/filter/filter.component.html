@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col">
         <mat-form-field>
-          <mat-select placeholder="Tipo de Servicio:" formControlName="documents" multiple>
+          <mat-select placeholder="Tipo de Servicio:" formControlName="typesService" multiple>
             <mat-option *ngFor="let item of typesService" [value]="item">{{item.description}}</mat-option>
           </mat-select>
         </mat-form-field>
