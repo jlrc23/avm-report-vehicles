@@ -8,10 +8,10 @@ import {SessionStorage} from 'ngx-webstorage';
   providedIn: 'root'
 })
 export class WizardDataService {
-  @SessionStorage()
+
   public fieldsSelecteds: SelectItemBean[];
 
-  @SessionStorage()
+
   public filters: any;
 
   public fieldsSubject: BehaviorSubject<SelectItemBean[]> = new BehaviorSubject<SelectItemBean[]>(this.fieldsSelecteds);

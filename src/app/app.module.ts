@@ -21,7 +21,6 @@ import { FilterComponent } from './components/filter/filter.component';
 import { WizarReportComponent } from './components/wizar-report/wizar-report.component';
 import {PromptSelectorModule} from '../../projects/prompt-selector/src/lib/prompt-selector.module';
 import { FieldsSelectorComponent } from './components/fields-selector/fields-selector.component';
-import {NgxWebstorageModule} from 'ngx-webstorage';
 
 @NgModule({
   declarations: [
@@ -52,9 +51,7 @@ import {NgxWebstorageModule} from 'ngx-webstorage';
     MatButtonModule,
     MatStepperModule,
     PromptSelectorModule,
-    MatRadioModule,
-    NgxWebstorageModule.forRoot(),
-  ],
+    MatRadioModule],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -45,7 +45,16 @@
             </ul>
           </div>
         </div>
+        <div class="row" *ngIf="wizardDataService.filters['typesSeguro']">
+          <div class="col">
+            Tipo de seguro:
+            <ul>
+              <li *ngFor="let typeSeguro of wizardDataService.filters['typesSeguro']">{{typeSeguro.description}}</li>
+            </ul>
+          </div>
+        </div>
       </div>
+
 
       <ng-template #nohavefilter>
         <div class="col" >

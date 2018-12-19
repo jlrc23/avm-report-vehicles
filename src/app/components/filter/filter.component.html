@@ -16,15 +16,15 @@
         </mat-form-field>
       </div>
     </div>
-    <!--<div class="row">-->
-      <!--<div class="col">-->
-        <!--<mat-form-field>-->
-          <!--<mat-select placeholder="A favor de:"   formControlName="owners" multiple>-->
-            <!--<mat-option *ngFor="let item of ownersCatalog" [value]="item">{{item.description}}</mat-option>-->
-          <!--</mat-select>-->
-        <!--</mat-form-field>-->
-      <!--</div>-->
-    <!--</div>-->
+    <div class="row">
+      <div class="col">
+        <mat-form-field>
+          <mat-select placeholder="Seguro"   formControlName="typesSeguro" multiple>
+            <mat-option *ngFor="let item of secureCatalog" [value]="item">{{item.description}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
   </form>
 
 </div>
