@@ -12,6 +12,7 @@ import {WizardDataService} from '../../services/wizard-data.service';
 export class FilterComponent implements OnInit {
   public typesService: CatalogItemInterface[] = [];
   public typesDocumentsCatalog: CatalogItemInterface[] = [];
+  public typesReviews: CatalogItemInterface[] = [];
   public secureCatalog: CatalogItemInterface[] = [];
   public frmFilter: FormGroup;
 
@@ -22,6 +23,7 @@ export class FilterComponent implements OnInit {
     this.frmFilter = new FormGroup({
       typesService: new FormControl(),
       typesDocument: new FormControl(),
+      typeReview: new FormControl(),
       typesSeguro: new FormControl()
     });
   }
@@ -42,6 +44,9 @@ export class FilterComponent implements OnInit {
           this.typesDocumentsCatalog.push({id, description: resp[i]});
         }
       }
+    });
+    this.vehicleReportService.getTypeReviews().subscribe(resp => {
+      this.typesReviews = resp;
     });
     this.vehicleReportService.getSeguroFilter().subscribe(resp => {
         this.secureCatalog = resp;

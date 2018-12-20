@@ -45,6 +45,12 @@ export class VehicleReportService {
     return this.httpClient.get<any>(endPoint);
   }
 
+  getTypeReviews(): Observable<any> {
+    const endPoint = environment.api + 'vehiculosreporte/getCatalog?type=typeReviews';
+    console.log(`Request to EndPoint:`, endPoint);
+    return this.httpClient.get<any>(endPoint);
+  }
+
 
   getFields(): Observable<FieldInterface[]> {
     const endPoint = environment.api + 'vehiculosreporte/getCatalog?type=fields';

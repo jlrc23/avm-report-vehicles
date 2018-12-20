@@ -24,6 +24,13 @@
           </mat-select>
         </mat-form-field>
       </div>
+        <div class="col">
+          <mat-form-field>
+            <mat-select placeholder="Revista"   formControlName="typeReview">
+              <mat-option *ngFor="let item of typesReviews" [value]="item">{{item.description}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
     </div>
   </form>
 
