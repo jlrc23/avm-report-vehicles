@@ -13,6 +13,8 @@ export class FilterComponent implements OnInit {
   public typesService: CatalogItemInterface[] = [];
   public typesDocumentsCatalog: CatalogItemInterface[] = [];
   public typesReviews: CatalogItemInterface[] = [];
+  public typesTenencias: CatalogItemInterface[] = [];
+  public typesTC: CatalogItemInterface[] = [];
   public secureCatalog: CatalogItemInterface[] = [];
   public frmFilter: FormGroup;
 
@@ -24,6 +26,8 @@ export class FilterComponent implements OnInit {
       typesService: new FormControl(),
       typesDocument: new FormControl(),
       typeReview: new FormControl(),
+      typeTenencia: new FormControl(),
+      typeTC: new FormControl(),
       typesSeguro: new FormControl()
     });
   }
@@ -48,8 +52,16 @@ export class FilterComponent implements OnInit {
     this.vehicleReportService.getTypeReviews().subscribe(resp => {
       this.typesReviews = resp;
     });
+    this.vehicleReportService.getTypeTenencias().subscribe(resp => {
+      this.typesTenencias = resp;
+    });
     this.vehicleReportService.getSeguroFilter().subscribe(resp => {
         this.secureCatalog = resp;
+    });
+
+
+    this.vehicleReportService.getTC().subscribe(resp => {
+        this.typesTC = resp;
     });
 
 

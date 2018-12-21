@@ -6,6 +6,8 @@
         <div [ngSwitch]="item.value.name">
           <span class="dataTable" *ngSwitchCase="'Fecha'">{{row[item.value.name] | date}}</span>
           <span class="dataTable" *ngSwitchCase="'Valido hasta'">{{row[item.value.name] | date}}</span>
+          <span class="dataTable" *ngSwitchCase="'TC'">{{row[item.value.name] | date}}</span>
+          <span class="dataTable" *ngSwitchCase="'Verificación Ambiental'">{{row[item.value.name] | date}}</span>
           <span class="dataTable" *ngSwitchCase="'Monto'"> {{row[item.value.name]   | currency}}</span>
           <span class="dataTable" *ngSwitchDefault>{{row[item.value.name] || 'no hay datos'}}</span>
         </div>

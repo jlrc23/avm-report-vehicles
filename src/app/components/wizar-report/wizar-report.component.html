@@ -31,7 +31,7 @@
         <b>Filtros:</b>
         <div class="row" *ngIf=" wizardDataService.filters['typesService']">
           <div class="col">
-            Documentos Seleccionados:
+            Tipo de Servicio:
             <ul>
               <li *ngFor="let service of wizardDataService.filters['typesService']">{{service.description}}</li>
             </ul>
@@ -51,6 +51,21 @@
             <ul>
               <li *ngFor="let typeSeguro of wizardDataService.filters['typesSeguro']">{{typeSeguro.description}}</li>
             </ul>
+          </div>
+        </div>
+        <div class="row" *ngIf="wizardDataService.filters['typeReview']">
+          <div class="col">
+            Revista: <i>{{wizardDataService.filters['typeReview'].description}}</i>
+          </div>
+        </div>
+        <div class="row" *ngIf="wizardDataService.filters['typeTenencia']">
+          <div class="col">
+            Tenencia: <i>{{wizardDataService.filters['typeTenencia'].description}}</i>
+          </div>
+        </div>
+        <div class="row" *ngIf="wizardDataService.filters['typeTC']">
+          <div class="col">
+            TC (Tarjeta de Circulación): <i>{{wizardDataService.filters['typeTC'].description}}</i>
           </div>
         </div>
       </div>

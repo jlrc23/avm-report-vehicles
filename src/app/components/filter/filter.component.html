@@ -24,13 +24,30 @@
           </mat-select>
         </mat-form-field>
       </div>
-        <div class="col">
-          <mat-form-field>
-            <mat-select placeholder="Revista"   formControlName="typeReview">
-              <mat-option *ngFor="let item of typesReviews" [value]="item">{{item.description}}</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
+      <div class="col">
+        <mat-form-field>
+          <mat-select placeholder="Revista/Inspección Fisico Mecanica"   formControlName="typeReview">
+            <mat-option *ngFor="let item of typesReviews" [value]="item">{{item.description}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field>
+          <mat-select placeholder="Tenencia"   formControlName="typeTenencia">
+            <mat-option *ngFor="let item of typesTenencias" [value]="item">{{item.description}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field>
+          <mat-select placeholder="TC(Tarjeta de Circulación)"   formControlName="typeTC">
+            <mat-option *ngFor="let item of typesTC" [value]="item">{{item.description}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
     </div>
   </form>
 

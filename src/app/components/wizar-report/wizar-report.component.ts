@@ -29,6 +29,6 @@ export class WizarReportComponent implements OnInit {
   }
 
   makeReporte() {
-    this.router.navigate(["report"]);
+    this.router.navigate(['report']);
   }
 }
