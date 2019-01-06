@@ -10,11 +10,11 @@ import {WizardDataService} from '../../services/wizard-data.service';
 })
 export class FieldsSelectorComponent implements OnInit {
   fields;
-  fieldsLists:SelectItemBean[];
-  loading:boolean;
+  fieldsLists: SelectItemBean[];
+  loading: boolean;
   constructor(
     public wizardDataService: WizardDataService,
-    public vehicleReportService:VehicleReportService
+    public vehicleReportService: VehicleReportService
   ) { }
 
   ngOnInit() {

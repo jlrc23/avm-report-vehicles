@@ -68,6 +68,24 @@
             TC (Tarjeta de Circulación): <i>{{wizardDataService.filters['typeTC'].description}}</i>
           </div>
         </div>
+        <div class="row" *ngIf="wizardDataService.filters['typesOwners']">
+          <div class="col">
+            Empresas:
+            <ul>
+              <li *ngFor="let owners of wizardDataService.filters['typesOwners']">{{ owners.description }}</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row" *ngIf="wizardDataService.filters['vehicleYears']">
+          <div class="col">
+            Años modelo de los vehículos: <i>{{wizardDataService.filters['vehicleYears']}}</i>
+          </div>
+        </div>
+        <div class="row" *ngIf="wizardDataService.filters['statusVehiculos']">
+          <div class="col">
+            Estatus de los Vehículos: <i>{{wizardDataService.filters['statusVehiculos']}}</i>
+          </div>
+        </div>
       </div>
 
 

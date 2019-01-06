@@ -45,6 +45,12 @@ export class VehicleReportService {
     return this.httpClient.get<any>(endPoint);
   }
 
+  getVehicleYears(): Observable<any> {
+    const endPoint = environment.api + 'vehiculosreporte/getCatalog?type=vehicleYears';
+    console.log(`Request to EndPoint:`, endPoint);
+    return this.httpClient.get<any>(endPoint);
+  }
+
   getTC(): Observable<any> {
     const endPoint = environment.api + 'vehiculosreporte/getCatalog?type=typeTCs';
     console.log(`Request to EndPoint:`, endPoint);
@@ -56,8 +62,16 @@ export class VehicleReportService {
     console.log(`Request to EndPoint:`, endPoint);
     return this.httpClient.get<any>(endPoint);
   }
+
   getTypeTenencias(): Observable<any> {
     const endPoint = environment.api + 'vehiculosreporte/getCatalog?type=typeTenencias';
+    console.log(`Request to EndPoint:`, endPoint);
+    return this.httpClient.get<any>(endPoint);
+  }
+
+
+  getTypesOwners(): Observable<any> {
+    const endPoint = environment.api + 'vehiculosreporte/getCatalog?type=typesOwners';
     console.log(`Request to EndPoint:`, endPoint);
     return this.httpClient.get<any>(endPoint);
   }

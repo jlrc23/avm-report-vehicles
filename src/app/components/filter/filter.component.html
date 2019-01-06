@@ -49,6 +49,35 @@
       </div>
 
     </div>
+
+
+    <div class="row">
+      <div class="col">
+        <mat-form-field>
+          <mat-select placeholder="Empresa titular"   formControlName="typesOwners" multiple>
+            <mat-option *ngFor="let item of typesOwners" [value]="item">{{item.description}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col">
+         <mat-form-field>
+          <mat-select placeholder="Año modelo de los vehículos  "   formControlName="vehicleYears" multiple>
+            <mat-option *ngFor="let item of lstVehicleYears" [value]="item">{{item}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <mat-form-field>
+          <mat-select placeholder="Estatus del vehículos "   formControlName="statusVehiculos">
+            <mat-option value="activo">Vehículos Activos</mat-option>
+            <mat-option value="inactivo">Vehículos Inactivos</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
   </form>
 
 </div>

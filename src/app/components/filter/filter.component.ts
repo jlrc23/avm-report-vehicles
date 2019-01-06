@@ -16,6 +16,8 @@ export class FilterComponent implements OnInit {
   public typesTenencias: CatalogItemInterface[] = [];
   public typesTC: CatalogItemInterface[] = [];
   public secureCatalog: CatalogItemInterface[] = [];
+  public lstVehicleYears: string[] = [];
+  public typesOwners = [];
   public frmFilter: FormGroup;
 
   constructor(
@@ -28,7 +30,10 @@ export class FilterComponent implements OnInit {
       typeReview: new FormControl(),
       typeTenencia: new FormControl(),
       typeTC: new FormControl(),
-      typesSeguro: new FormControl()
+      typesSeguro: new FormControl(),
+      typesOwners: new FormControl(),
+      vehicleYears: new FormControl(),
+      statusVehiculos: new FormControl()
     });
   }
 
@@ -41,6 +46,7 @@ export class FilterComponent implements OnInit {
           }
         }
     });
+
     this.vehicleReportService.getTipoDocumento().subscribe(resp => {
       for (const i in resp) {
         if (resp.hasOwnProperty(i)) {
@@ -49,15 +55,33 @@ export class FilterComponent implements OnInit {
         }
       }
     });
+
     this.vehicleReportService.getTypeReviews().subscribe(resp => {
       this.typesReviews = resp;
     });
+
     this.vehicleReportService.getTypeTenencias().subscribe(resp => {
       this.typesTenencias = resp;
     });
+
+    this.vehicleReportService.getTypesOwners().subscribe(resp => {
+      this.typesOwners = [];
+      for (const i in resp) {
+        if (resp.hasOwnProperty(i)) {
+          const id: number = Number(i);
+          this.typesOwners.push({id, description: resp[i]});
+        }
+      }
+    });
+
     this.vehicleReportService.getSeguroFilter().subscribe(resp => {
         this.secureCatalog = resp;
     });
+
+    this.vehicleReportService.getVehicleYears().subscribe(resp => {
+        this.lstVehicleYears = resp;
+    });
+
 
 
     this.vehicleReportService.getTC().subscribe(resp => {
