@@ -5,7 +5,7 @@ export function Convert2CSV(objArray) {
   let row = '';
   console.group("First for");
   for (const fieldData in objArray[0]) {
-    row += fieldData.replace(',','') + ',';
+    row += removeDiacritics(fieldData.replace(',','')) + ',';
     console.log("row:", row);
   }
   console.groupEnd();
@@ -29,6 +29,7 @@ export function Convert2CSV(objArray) {
       line += dataField;
     }
     str += line + '\r\n';
+    console.log("line:", line);
   }
   console.groupEnd();
   return str;
